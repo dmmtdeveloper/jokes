@@ -6,16 +6,19 @@ const createJokes = async (req, res) => {
   res.status(200).json(newJoke);
 };
 
+
 const readJokes = async (req, res) => {
   const jokeList = await Joke.find();
   res.status(200).json(jokeList);
 };
+
 
 const getOneJoke = async (req, res) => {
   const id = req.params.idJoke;
   const jokeFound = await Joke.findById(id);
   res.status(200).json(jokeFound);
 };
+
 
 const updateJokes = async (req, res) => {
   const id = req.params.idJoke;
@@ -24,6 +27,7 @@ const updateJokes = async (req, res) => {
   await Joke.findByIdAndUpdate(id, Data);
   res.status(200).json();
 };
+
 
 const deleteJokes = async (req, res) => {
   const id = req.params.idJoke;
